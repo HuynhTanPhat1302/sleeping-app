@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'pages/home_page.dart';
 
 void main() => runApp(const MyApp());
 
@@ -39,7 +40,12 @@ class MyApp extends StatelessWidget {
                         .spaceEvenly, // add this to evenly space the buttons
                     children: [
                       ElevatedButton(
-                        onPressed: () {},
+                        onPressed: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(builder: (context) => HomePage()),
+                          );
+                        },
                         style: ElevatedButton.styleFrom(
                           primary: Color.fromRGBO(117, 166, 193, 1),
                           minimumSize: const Size(250, 40),
