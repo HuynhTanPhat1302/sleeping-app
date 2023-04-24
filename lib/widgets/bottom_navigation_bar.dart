@@ -40,20 +40,6 @@ class MyBottomNavigationBar extends StatelessWidget {
           label: 'Add',
         ),
       ],
-      selectedIconTheme: const IconThemeData(
-        color: Colors.white, // set selected item icon color
-      ),
-      unselectedIconTheme: const IconThemeData(
-        color:
-            Color.fromRGBO(157, 145, 254, 1), // set unselected item icon color
-      ),
-      selectedLabelStyle: const TextStyle(
-        color: Colors.white, // set selected item label color
-      ),
-      unselectedLabelStyle: const TextStyle(
-        color:
-            Color.fromRGBO(157, 145, 254, 1), // set unselected item label color
-      ),
     );
   }
 }
