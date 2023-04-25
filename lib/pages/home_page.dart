@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import '../widgets/bottom_navigation_bar.dart';
+import '../widgets/top_bar.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -23,31 +24,32 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'Sleeping app',
       home: Scaffold(
+        extendBodyBehindAppBar: true,
+        appBar: TopBar(
+          title: 'My Screen',
+          onBackButtonPressed: () {
+            Navigator.pop(context);
+          },
+          onOptionsPressed: () {
+            // Do something when options button is pressed
+          },
+        ),
         body: LayoutBuilder(
           builder: (context, constraints) => Container(
             width: constraints.maxWidth,
             height: constraints.maxHeight,
             decoration: const BoxDecoration(
               image: DecorationImage(
-                image: AssetImage('assets/images/background-1.png'),
+                image: AssetImage('assets/images/background-2.png'),
                 fit: BoxFit.cover,
               ),
             ),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.end,
-              children: [
-                Padding(
-                  padding: const EdgeInsets.symmetric(
-                      vertical: 16.0), // specify the vertical padding here
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment
-                        .spaceEvenly, // add this to evenly space the buttons
-                    children: [],
-                  ),
-                )
-              ],
+              children: [],
             ),
           ),
         ),
