@@ -19,6 +19,22 @@ class _HomePageState extends State<HomePage> {
     setState(() {
       _selectedIndex = index;
     });
+    switch (index) {
+      case 0:
+        // Do nothing, already on the home page
+        break;
+      case 1:
+        // Navigate to the settings page
+        Navigator.pushReplacementNamed(context, '#');
+        break;
+      case 2:
+        // Navigate to the notifications page
+        Navigator.pushReplacementNamed(context, '#');
+        break;
+      default:
+        // Do nothing
+        break;
+    }
   }
 
   @override

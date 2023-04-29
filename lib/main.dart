@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:my_first_app/pages/home_page.dart';
 import 'package:my_first_app/widgets/dark_button.dart';
 import 'widgets/light_button.dart';
-import 'pages/home_page.dart';
 
 void main() => runApp(const MyApp());
 
