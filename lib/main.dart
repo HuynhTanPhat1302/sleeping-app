@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:my_first_app/widgets/dark_button.dart';
 import 'widgets/light_button.dart';
 import 'pages/home_page.dart';
 
@@ -41,41 +42,33 @@ class MyApp extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment
                         .spaceEvenly, // add this to evenly space the buttons
                     children: [
-                      // ElevatedButton(
-                      //   onPressed: () {
-                      //     Navigator.push(
-                      //       context,
-                      //       MaterialPageRoute(builder: (context) => HomePage()),
-                      //     );
-                      //   },
-                      //   style: ElevatedButton.styleFrom(
-                      //     primary: Color.fromRGBO(117, 166, 193, 1),
-                      //     minimumSize: const Size(250, 40),
-                      //   ),
-                      //   child: const Text('GET STARTED'),
-                      // ),
                       LightButton(
                           text: 'GET STARTED',
                           onPressed: () {
                             Navigator.push(
                               context,
                               MaterialPageRoute(
-                                  builder: (context) => HomePage()),
+                                  builder: (context) => const HomePage()),
                             );
                           },
                           width: 250,
                           height: 40),
                       Padding(
-                        padding: const EdgeInsets.symmetric(vertical: 8),
-                        child: ElevatedButton(
-                          onPressed: () {},
-                          style: ElevatedButton.styleFrom(
-                            backgroundColor: Color.fromRGBO(53, 70, 112, 1),
-                            minimumSize: const Size(250, 40),
-                          ),
-                          child: const Text('ALREADY HAVE AN ACCOUNT'),
-                        ),
-                      )
+                          padding: const EdgeInsets.symmetric(vertical: 8),
+                          // child: ElevatedButton(
+                          //   onPressed: () {},
+                          //   style: ElevatedButton.styleFrom(
+                          //     backgroundColor:
+                          //         const Color.fromRGBO(53, 70, 112, 1),
+                          //     minimumSize: const Size(250, 40),
+                          //   ),
+                          //   child: const Text('ALREADY HAVE AN ACCOUNT'),
+                          // ),
+                          child: DarkButton(
+                              text: 'ALREADY HAVE AN ACCOUNT',
+                              onPressed: () {},
+                              width: 250,
+                              height: 40))
                     ],
                   ),
                 )
