@@ -22,10 +22,15 @@ class DarkButton extends StatelessWidget {
       child: ElevatedButton(
         onPressed: onPressed,
         style: ElevatedButton.styleFrom(
-          backgroundColor: const Color.fromRGBO(
-              53, 70, 112, 1), // Add a hard-coded color here
+          backgroundColor: const Color.fromRGBO(53, 70, 112, 1),
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(16),
+          ),
         ),
-        child: Text(text),
+        child: Text(text,
+            style: const TextStyle(
+              fontWeight: FontWeight.bold,
+            )),
       ),
     );
   }

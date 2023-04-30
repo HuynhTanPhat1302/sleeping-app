@@ -22,10 +22,15 @@ class LightButton extends StatelessWidget {
       child: ElevatedButton(
         onPressed: onPressed,
         style: ElevatedButton.styleFrom(
-          backgroundColor: const Color.fromRGBO(
-              117, 166, 193, 1), // Add a hard-coded color here
+          backgroundColor: const Color.fromRGBO(117, 166, 193, 1),
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(16),
+          ),
         ),
-        child: Text(text),
+        child: Text(text,
+            style: const TextStyle(
+              fontWeight: FontWeight.bold,
+            )),
       ),
     );
   }

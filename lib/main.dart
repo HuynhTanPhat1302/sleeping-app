@@ -11,6 +11,9 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      theme: ThemeData(
+        fontFamily: 'Roboto',
+      ),
       debugShowCheckedModeBanner: false,
       title: 'Sleeping app',
       home: Scaffold(
@@ -55,15 +58,6 @@ class MyApp extends StatelessWidget {
                           height: 40),
                       Padding(
                           padding: const EdgeInsets.symmetric(vertical: 8),
-                          // child: ElevatedButton(
-                          //   onPressed: () {},
-                          //   style: ElevatedButton.styleFrom(
-                          //     backgroundColor:
-                          //         const Color.fromRGBO(53, 70, 112, 1),
-                          //     minimumSize: const Size(250, 40),
-                          //   ),
-                          //   child: const Text('ALREADY HAVE AN ACCOUNT'),
-                          // ),
                           child: DarkButton(
                               text: 'ALREADY HAVE AN ACCOUNT',
                               onPressed: () {},

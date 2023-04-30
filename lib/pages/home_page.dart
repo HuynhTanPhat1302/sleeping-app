@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:my_first_app/widgets/light_button.dart';
 import '../widgets/bottom_navigation_bar.dart';
 import '../widgets/top_bar.dart';
+import '../widgets/dark_button.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -65,7 +67,64 @@ class _HomePageState extends State<HomePage> {
             ),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.end,
-              children: [],
+              children: [
+                Padding(
+                    padding: const EdgeInsets.only(bottom: 8.0),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Column(
+                          children: [
+                            Container(
+                              width: 100,
+                              height: 100,
+                              decoration: const BoxDecoration(
+                                shape: BoxShape.circle,
+                                color: Colors.blue,
+                              ),
+                            ),
+                            LightButton(
+                                text: 'BedTime',
+                                onPressed: () {},
+                                width: 195,
+                                height: 60)
+                          ],
+                        ),
+                        const SizedBox(width: 10),
+                        Column(
+                          children: [
+                            Container(
+                              width: 100,
+                              height: 100,
+                              decoration: const BoxDecoration(
+                                shape: BoxShape.circle,
+                                color: Colors.blue,
+                              ),
+                            ),
+                            LightButton(
+                                text: 'BedTime',
+                                onPressed: () {},
+                                width: 195,
+                                height: 60)
+                          ],
+                        ),
+                      ],
+                    )),
+                Padding(
+                    padding: const EdgeInsets.only(bottom: 8.0),
+                    child: DarkButton(
+                        text: 'START SLEEP TRACKING',
+                        onPressed: () {},
+                        width: 400,
+                        height: 60)),
+                Padding(
+                    padding: const EdgeInsets.only(bottom: 24.0),
+                    child: DarkButton(
+                        text: 'SET ALARM',
+                        onPressed: () {},
+                        width: 400,
+                        height: 40))
+              ],
             ),
           ),
         ),
