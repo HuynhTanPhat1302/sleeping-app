@@ -61,51 +61,98 @@ class _HomePageState extends State<HomePage> {
             height: constraints.maxHeight,
             decoration: const BoxDecoration(
               image: DecorationImage(
-                image: AssetImage('assets/images/background-2.png'),
-                fit: BoxFit.cover,
-              ),
+                  image: AssetImage('assets/images/background-2.png'),
+                  fit: BoxFit.cover,
+                  colorFilter: ColorFilter.mode(
+                      Color.fromRGBO(35, 56, 99, 0.6), BlendMode.darken)),
             ),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.end,
               children: [
                 Padding(
+                  padding: const EdgeInsets.only(bottom: 44.0),
+                  child: Container(
+                    width: 300,
+                    height: 300,
+                    decoration: const BoxDecoration(
+                      shape: BoxShape.circle,
+                      color: Color.fromRGBO(49, 27, 107, 1),
+                    ),
+                  ),
+                ),
+                Padding(
+                  padding: EdgeInsets.only(bottom: 44.0),
+                  child: Text(
+                    '10:10:28',
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 40,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                ),
+                Padding(
                     padding: const EdgeInsets.only(bottom: 8.0),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        Column(
+                        Stack(
+                          clipBehavior:
+                              Clip.none, // add this line to remove clipping
                           children: [
-                            Container(
-                              width: 100,
-                              height: 100,
-                              decoration: const BoxDecoration(
-                                shape: BoxShape.circle,
-                                color: Colors.blue,
+                            LightButton(
+                              text: 'BedTime\n 10:20 PM',
+                              onPressed: () {},
+                              width: 195,
+                              height: 60,
+                            ),
+                            Positioned(
+                              top: -20,
+                              right: 0,
+                              left: 0,
+                              child: Container(
+                                width: 40,
+                                height: 40,
+                                decoration: const BoxDecoration(
+                                  shape: BoxShape.circle,
+                                  color: Color.fromRGBO(49, 27, 107, 1),
+                                  image: DecorationImage(
+                                    image:
+                                        AssetImage('assets/images/phone.png'),
+                                  ),
+                                ),
                               ),
                             ),
-                            LightButton(
-                                text: 'BedTime',
-                                onPressed: () {},
-                                width: 195,
-                                height: 60)
                           ],
                         ),
                         const SizedBox(width: 10),
-                        Column(
+                        Stack(
+                          clipBehavior:
+                              Clip.none, // add this line to remove clipping
                           children: [
-                            Container(
-                              width: 100,
-                              height: 100,
-                              decoration: const BoxDecoration(
-                                shape: BoxShape.circle,
-                                color: Colors.blue,
+                            LightButton(
+                              text: 'BedTime\n 10:20 PM',
+                              onPressed: () {},
+                              width: 195,
+                              height: 60,
+                            ),
+                            Positioned(
+                              top: -20,
+                              right: 0,
+                              left: 0,
+                              child: Container(
+                                width: 40,
+                                height: 40,
+                                decoration: const BoxDecoration(
+                                  shape: BoxShape.circle,
+                                  color: Color.fromRGBO(49, 27, 107, 1),
+                                  image: DecorationImage(
+                                    image:
+                                        AssetImage('assets/images/phone.png'),
+                                  ),
+                                ),
                               ),
                             ),
-                            LightButton(
-                                text: 'BedTime',
-                                onPressed: () {},
-                                width: 195,
-                                height: 60)
                           ],
                         ),
                       ],
