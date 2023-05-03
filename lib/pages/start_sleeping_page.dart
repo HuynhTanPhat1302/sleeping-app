@@ -2,16 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:my_first_app/widgets/light_button.dart';
 import '../widgets/bottom_navigation_bar.dart';
 import '../widgets/top_bar.dart';
-import '../widgets/dark_button.dart';
-import 'package:intl/intl.dart';
-import '../widgets/clock_view.dart';
+import '../widgets/swipe_up_button.dart';
 import '../widgets/current_datetime_v2.dart';
+import 'package:swipeable_button_view/swipeable_button_view.dart';
 
 class StartSleepingPage extends StatefulWidget {
   const StartSleepingPage({super.key});
 
   @override
-  // ignore: library_private_types_in_public_api
   _StartSleepingPageState createState() {
     return _StartSleepingPageState();
   }
@@ -109,12 +107,24 @@ class _StartSleepingPageState extends State<StartSleepingPage> {
                       //icon
                     )),
                 Padding(
-                    padding: const EdgeInsets.only(bottom: 46.0),
-                    child: LightButton(
-                        text: 'START SLEEPING',
-                        onPressed: () {},
-                        width: 380,
-                        height: 60)),
+                  padding: const EdgeInsets.only(bottom: 46.0),
+                  // child: LightButton(
+                  //     text: 'START SLEEPING',
+                  //     onPressed: () {},
+                  //     width: 380,
+                  //     height: 60)
+                  child: SwipeableButtonView(
+                      onFinish: () {},
+                      onWaitingProcess: () {},
+                      activeColor: Color(0xFF009C41),
+                      buttonWidget: Container(
+                        child: Icon(
+                          Icons.arrow_forward_ios_rounded,
+                          color: Colors.grey,
+                        ),
+                      ),
+                      buttonText: 'Swipe'),
+                ),
               ],
             ),
           ),
@@ -126,4 +136,9 @@ class _StartSleepingPageState extends State<StartSleepingPage> {
       ),
     );
   }
+}
+
+Widget _buildFirstComponent() {
+  return LightButton(
+      text: 'START SLEEPING', onPressed: () {}, width: 380, height: 60);
 }
