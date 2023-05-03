@@ -3,6 +3,9 @@ import 'package:my_first_app/widgets/light_button.dart';
 import '../widgets/bottom_navigation_bar.dart';
 import '../widgets/top_bar.dart';
 import '../widgets/dark_button.dart';
+import 'package:intl/intl.dart';
+import '../widgets/clock_view.dart';
+import '../widgets/current_datetime.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -23,11 +26,10 @@ class _HomePageState extends State<HomePage> {
     });
     switch (index) {
       case 0:
-        // Do nothing, already on the home page
         break;
       case 1:
         // Navigate to the settings page
-        Navigator.pushReplacementNamed(context, '#');
+        Navigator.pushReplacementNamed(context, 'clock_view');
         break;
       case 2:
         // Navigate to the notifications page
@@ -42,6 +44,9 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      routes: {
+        '/clock_view': (context) => ClockView(),
+      },
       debugShowCheckedModeBanner: false,
       title: 'Sleeping app',
       home: Scaffold(
@@ -72,24 +77,21 @@ class _HomePageState extends State<HomePage> {
                 Padding(
                   padding: const EdgeInsets.only(bottom: 44.0),
                   child: Container(
-                    width: 300,
-                    height: 300,
-                    decoration: const BoxDecoration(
-                      shape: BoxShape.circle,
-                      color: Color.fromRGBO(49, 27, 107, 1),
-                    ),
-                  ),
+                    alignment: Alignment.center,
+                    child: ClockView(),
+                  ), //hello
                 ),
                 Padding(
-                  padding: EdgeInsets.only(bottom: 44.0),
-                  child: Text(
-                    '10:10:28',
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 40,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
+                  padding: const EdgeInsets.only(bottom: 44.0),
+                  // child: Text(
+                  //   getCurrentDateTime(),
+                  //   style: TextStyle(
+                  //     color: Colors.white,
+                  //     fontSize: 40,
+                  //     fontWeight: FontWeight.bold,
+                  //   ),
+                  // ),
+                  child: CurrentDateTimeWidget(),
                 ),
                 Padding(
                     padding: const EdgeInsets.only(bottom: 8.0),
@@ -111,8 +113,8 @@ class _HomePageState extends State<HomePage> {
                               right: 0,
                               left: 0,
                               child: Container(
-                                width: 40,
-                                height: 40,
+                                width: 30,
+                                height: 30,
                                 decoration: const BoxDecoration(
                                   shape: BoxShape.circle,
                                   color: Color.fromRGBO(49, 27, 107, 1),
@@ -131,7 +133,7 @@ class _HomePageState extends State<HomePage> {
                               Clip.none, // add this line to remove clipping
                           children: [
                             LightButton(
-                              text: 'BedTime\n 10:20 PM',
+                              text: 'WakeUp \n 10:20 PM',
                               onPressed: () {},
                               width: 195,
                               height: 60,
@@ -141,8 +143,8 @@ class _HomePageState extends State<HomePage> {
                               right: 0,
                               left: 0,
                               child: Container(
-                                width: 40,
-                                height: 40,
+                                width: 30,
+                                height: 30,
                                 decoration: const BoxDecoration(
                                   shape: BoxShape.circle,
                                   color: Color.fromRGBO(49, 27, 107, 1),
