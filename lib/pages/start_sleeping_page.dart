@@ -18,6 +18,14 @@ class StartSleepingPage extends StatefulWidget {
 class _StartSleepingPageState extends State<StartSleepingPage> {
   int _selectedIndex = 0;
 
+  bool _showButton = true;
+
+  void _toggleButton() {
+    setState(() {
+      _showButton = !_showButton;
+    });
+  }
+
   void _onItemTapped(int index) {
     setState(() {
       _selectedIndex = index;
@@ -67,10 +75,9 @@ class _StartSleepingPageState extends State<StartSleepingPage> {
                       Color.fromRGBO(35, 56, 99, 0.6), BlendMode.darken)),
             ),
             child: Column(
-              mainAxisAlignment: MainAxisAlignment.end,
               children: [
                 Padding(
-                  padding: const EdgeInsets.only(bottom: 22.0),
+                  padding: const EdgeInsets.only(top: 111.0),
                   child: Text(
                     'Good Night',
                     style: TextStyle(
@@ -80,11 +87,11 @@ class _StartSleepingPageState extends State<StartSleepingPage> {
                   ),
                 ),
                 Padding(
-                  padding: const EdgeInsets.only(bottom: 39.0),
+                  padding: const EdgeInsets.only(top: 20.0),
                   child: CurrentDateTimeWidgetV2(),
                 ),
                 Padding(
-                    padding: const EdgeInsets.only(bottom: 69.0),
+                    padding: const EdgeInsets.only(top: 41.0),
                     child: Container(
                       width: 300,
                       height: 300,
@@ -106,25 +113,21 @@ class _StartSleepingPageState extends State<StartSleepingPage> {
 
                       //icon
                     )),
-                Padding(
-                  padding: const EdgeInsets.only(bottom: 46.0),
-                  // child: LightButton(
-                  //     text: 'START SLEEPING',
-                  //     onPressed: () {},
-                  //     width: 380,
-                  //     height: 60)
-                  child: SwipeableButtonView(
-                      onFinish: () {},
-                      onWaitingProcess: () {},
-                      activeColor: Color(0xFF009C41),
-                      buttonWidget: Container(
-                        child: Icon(
-                          Icons.arrow_forward_ios_rounded,
-                          color: Colors.grey,
+                _showButton
+                    ? _buildFirstComponent(_toggleButton)
+                    : _buildSecondComponent(),
+                _showButton
+                    ? Container(height: 0)
+                    : Padding(
+                        padding: const EdgeInsets.only(top: 21.0),
+                        child: Text(
+                          'Swipe up to awake',
+                          style: TextStyle(
+                              fontSize: 16,
+                              color: Colors.white,
+                              fontWeight: FontWeight.w600),
                         ),
                       ),
-                      buttonText: 'Swipe'),
-                ),
               ],
             ),
           ),
@@ -138,7 +141,24 @@ class _StartSleepingPageState extends State<StartSleepingPage> {
   }
 }
 
-Widget _buildFirstComponent() {
-  return LightButton(
-      text: 'START SLEEPING', onPressed: () {}, width: 380, height: 60);
+Widget _buildFirstComponent(VoidCallback onPressedCallback) {
+  return Padding(
+    padding: const EdgeInsets.only(top: 69.0),
+    child: LightButton(
+        text: 'START SLEEPING',
+        onPressed: onPressedCallback,
+        width: 380,
+        height: 60),
+  );
+}
+
+Widget _buildSecondComponent() {
+  return Padding(
+    padding: const EdgeInsets.only(top: 11.0),
+    child: SwipeUpButton(
+        onFinish: () {},
+        onWaitingProcess: () {},
+        activeColor: Color.fromARGB(255, 172, 165, 223),
+        iconColor: Colors.white),
+  );
 }

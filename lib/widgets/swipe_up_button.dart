@@ -1,67 +1,90 @@
 import 'package:flutter/material.dart';
 import 'package:swipeable_button_view/swipeable_button_view.dart';
 
-class SwipeUpButton extends StatefulWidget {
-  final VoidCallback onPressed;
+class SwipeUpButton extends StatelessWidget {
+  final void Function() onFinish;
+  final void Function() onWaitingProcess;
+  final Color activeColor;
+  final Color iconColor;
 
-  SwipeUpButton({required this.onPressed});
-
-  @override
-  _SwipeUpButtonState createState() => _SwipeUpButtonState();
-}
-
-class _SwipeUpButtonState extends State<SwipeUpButton>
-    with SingleTickerProviderStateMixin {
-  late AnimationController _controller;
-  late Animation<Offset> _animation;
-
-  @override
-  void initState() {
-    super.initState();
-    _controller = AnimationController(
-      vsync: this,
-      duration: Duration(milliseconds: 500),
-    );
-    _animation = Tween<Offset>(
-      begin: Offset.zero,
-      end: Offset(0, 1),
-    ).animate(_controller);
-  }
-
-  @override
-  void dispose() {
-    _controller.dispose();
-    super.dispose();
-  }
+  const SwipeUpButton({
+    Key? key,
+    required this.onFinish,
+    required this.onWaitingProcess,
+    required this.activeColor,
+    required this.iconColor,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
-      onVerticalDragUpdate: (details) {
-        _controller.value -= details.primaryDelta! / context.size!.height;
-      },
-      onVerticalDragEnd: (details) {
-        if (_controller.value > 0.5) {
-          _controller.forward();
-          widget.onPressed();
-        } else {
-          _controller.reverse();
-        }
-      },
-      child: SlideTransition(
-        position: _animation,
-        child: Container(
-          alignment: Alignment.center,
-          width: double.infinity,
-          height: 50,
-          decoration: BoxDecoration(
-            color: Colors.blue,
-            borderRadius: BorderRadius.vertical(
-              top: Radius.circular(25),
+    return SizedBox(
+      width: 60, // adjust width as needed
+      height: 100, // adjust height as needed
+      child: RotatedBox(
+        quarterTurns: 3,
+        child: SwipeableButtonView(
+          onFinish: onFinish,
+          onWaitingProcess: onWaitingProcess,
+          activeColor: activeColor,
+          buttonWidget: Container(
+            child: Icon(
+              Icons.arrow_forward_ios_rounded,
+              color: iconColor,
             ),
           ),
-          child: Icon(Icons.arrow_upward, color: Colors.white),
+          buttonText: '',
         ),
+      ),
+    );
+  }
+}
+
+class SwipeUpScreen extends StatefulWidget {
+  const SwipeUpScreen({Key? key}) : super(key: key);
+
+  @override
+  _SwipeUpScreenState createState() => _SwipeUpScreenState();
+}
+
+class _SwipeUpScreenState extends State<SwipeUpScreen> {
+  double _dragOffset = 0.0;
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: Stack(
+        children: [
+          GestureDetector(
+            onVerticalDragUpdate: (details) {
+              setState(() {
+                _dragOffset += details.delta.dy;
+              });
+            },
+            child: Container(
+              color: Colors.white,
+              child: Center(
+                child: Text(
+                  'Swipe up!',
+                  style: TextStyle(fontSize: 24.0),
+                ),
+              ),
+            ),
+          ),
+          Positioned(
+            bottom: 0.0,
+            left: 0.0,
+            right: 0.0,
+            child: Transform.translate(
+              offset: Offset(0.0, -_dragOffset),
+              child: SwipeUpButton(
+                onFinish: () {},
+                onWaitingProcess: () {},
+                activeColor: Color.fromARGB(255, 172, 165, 223),
+                iconColor: Color(0xACA5DF),
+              ),
+            ),
+          ),
+        ],
       ),
     );
   }
