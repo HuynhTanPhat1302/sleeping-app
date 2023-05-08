@@ -59,7 +59,7 @@ class MyApp extends StatelessWidget {
                       Padding(
                           padding: const EdgeInsets.symmetric(vertical: 8),
                           child: DarkButton(
-                              text: 'ALREADY HAVE AN ACCOUNT',
+                              text: 'I ALREADY HAVE AN ACCOUNT',
                               onPressed: () {},
                               width: 250,
                               height: 40))
