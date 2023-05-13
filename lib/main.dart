@@ -12,7 +12,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       theme: ThemeData(
-        fontFamily: 'Roboto',
+        fontFamily: 'Itim',
       ),
       debugShowCheckedModeBanner: false,
       title: 'Sleeping app',
@@ -45,24 +45,50 @@ class MyApp extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment
                         .spaceEvenly, // add this to evenly space the buttons
                     children: [
-                      LightButton(
-                          text: 'GET STARTED',
-                          onPressed: () {
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) => const HomePage()),
-                            );
-                          },
-                          width: 250,
-                          height: 40),
                       Padding(
-                          padding: const EdgeInsets.symmetric(vertical: 8),
+                        padding: const EdgeInsets.only(bottom: 14.0),
+                        child: LightButton(
+                            text: 'GET STARTED',
+                            onPressed: () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => const HomePage()),
+                              );
+                            },
+                            width: 250,
+                            height: 40),
+                      ),
+                      Padding(
+                          padding: const EdgeInsets.only(bottom: 10.0),
                           child: DarkButton(
-                              text: 'I ALREADY HAVE AN ACCOUNT',
+                              text: 'ALREADY HAVE AN ACCOUNT',
                               onPressed: () {},
                               width: 250,
-                              height: 40))
+                              height: 40)),
+                      Padding(
+                          padding: const EdgeInsets.only(bottom: 44.0),
+                          child: RichText(
+                            text: TextSpan(
+                              children: [
+                                TextSpan(
+                                  text: 'NOT HAVE ACCOUNT YET? ',
+                                  style: TextStyle(
+                                    color: Color.fromARGB(255, 117, 166, 193),
+                                    fontSize: 9,
+                                  ),
+                                ),
+                                TextSpan(
+                                  text: 'SIGN UP NOW',
+                                  style: TextStyle(
+                                    color: Color.fromARGB(255, 117, 166, 193),
+                                    fontSize: 9,
+                                    decoration: TextDecoration.underline,
+                                  ),
+                                ),
+                              ],
+                            ),
+                          )),
                     ],
                   ),
                 )

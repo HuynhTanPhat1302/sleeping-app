@@ -53,7 +53,7 @@ class _HomePageState extends State<HomePage> {
       home: Scaffold(
         extendBodyBehindAppBar: true,
         appBar: TopBar(
-          title: 'My Screen',
+          title: 'Alarm',
           onBackButtonPressed: () {
             Navigator.pop(context);
           },
@@ -104,7 +104,7 @@ class _HomePageState extends State<HomePage> {
                               Clip.none, // add this line to remove clipping
                           children: [
                             LightButton(
-                              text: 'BedTime\n 10:20 PM',
+                              text: 'Bedtime\n 10:20 PM',
                               onPressed: () {},
                               width: 195,
                               height: 60,
@@ -134,7 +134,7 @@ class _HomePageState extends State<HomePage> {
                               Clip.none, // add this line to remove clipping
                           children: [
                             LightButton(
-                              text: 'WakeUp \n 10:20 PM',
+                              text: 'Wakeup \n 10:20 PM',
                               onPressed: () {},
                               width: 195,
                               height: 60,

@@ -24,20 +24,59 @@ class MyBottomNavigationBar extends StatelessWidget {
       onTap: onTap,
       items: [
         BottomNavigationBarItem(
-          icon: Icon(Icons.home),
+          icon: Icon(
+            Icons.home,
+            size: 24,
+          ),
           label: 'Home',
         ),
         BottomNavigationBarItem(
-          icon: Icon(Icons.search),
-          label: 'Search',
+          icon: ColorFiltered(
+            colorFilter: ColorFilter.mode(
+              currentIndex == 1
+                  ? Colors.white
+                  : Color.fromARGB(255, 158, 145, 255),
+              BlendMode.srcIn,
+            ),
+            child: Image.asset(
+              'assets/images/static.png',
+              width: 28,
+              height: 28,
+            ),
+          ),
+          label: 'Static',
         ),
         BottomNavigationBarItem(
-          icon: Icon(Icons.search),
-          label: 'Add',
+          icon: ColorFiltered(
+            colorFilter: ColorFilter.mode(
+              currentIndex == 2
+                  ? Colors.white
+                  : Color.fromARGB(255, 158, 145, 255),
+              BlendMode.srcIn,
+            ),
+            child: Image.asset(
+              'assets/images/spaceship.png',
+              width: 28,
+              height: 28,
+            ),
+          ),
+          label: 'Spaceship',
         ),
         BottomNavigationBarItem(
-          icon: Icon(Icons.search),
-          label: 'Add',
+          icon: ColorFiltered(
+            colorFilter: ColorFilter.mode(
+              currentIndex == 3
+                  ? Colors.white
+                  : Color.fromARGB(255, 158, 145, 255),
+              BlendMode.srcIn,
+            ),
+            child: Image.asset(
+              'assets/images/setting.png',
+              width: 28,
+              height: 28,
+            ),
+          ),
+          label: 'Setting',
         ),
       ],
     );
