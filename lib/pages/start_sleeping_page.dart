@@ -59,9 +59,6 @@ class _StartSleepingPageState extends State<StartSleepingPage> {
           onBackButtonPressed: () {
             Navigator.pop(context);
           },
-          onOptionsPressed: () {
-            // Do something when options button is pressed
-          },
         ),
         body: LayoutBuilder(
           builder: (context, constraints) => Container(

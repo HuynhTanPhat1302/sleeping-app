@@ -5,6 +5,7 @@ import '../widgets/top_bar.dart';
 import '../widgets/dark_button.dart';
 import 'package:intl/intl.dart';
 import '../widgets/clock_view.dart';
+import '../widgets/swipte_button.dart';
 import '../widgets/current_datetime.dart';
 import 'start_sleeping_page.dart';
 
@@ -56,9 +57,6 @@ class _HomePageState extends State<HomePage> {
           title: 'Alarm',
           onBackButtonPressed: () {
             Navigator.pop(context);
-          },
-          onOptionsPressed: () {
-            // Do something when options button is pressed
           },
         ),
         body: LayoutBuilder(
