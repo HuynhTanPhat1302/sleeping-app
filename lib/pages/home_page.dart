@@ -102,7 +102,7 @@ class _HomePageState extends State<HomePage> {
                               Clip.none, // add this line to remove clipping
                           children: [
                             LightButton(
-                              text: 'Bedtime\n 10:20 PM',
+                              text: 'BedTime\n 10:20 PM',
                               onPressed: () {},
                               width: 195,
                               height: 60,
