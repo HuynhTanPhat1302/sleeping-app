@@ -19,7 +19,7 @@ class MyBottomNavigationBar extends StatelessWidget {
       unselectedItemColor:
           Color.fromRGBO(157, 145, 254, 1), // set unselected item color
       selectedFontSize: 18, // set selected item font size
-      unselectedFontSize: 14, // set unselected item font size
+      unselectedFontSize: 14, // set unselected item font sizee
       currentIndex: currentIndex,
       onTap: onTap,
       items: [
