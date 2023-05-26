@@ -57,7 +57,7 @@ class MyBottomNavigationBar extends StatelessWidget {
             child: Image.asset(
               'assets/images/spaceship.png',
               width: 28,
-              height: 28,
+              height: 29,
             ),
           ),
           label: 'Spaceship',
